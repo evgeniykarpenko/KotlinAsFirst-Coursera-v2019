@@ -2,6 +2,7 @@
 
 package lesson3.task1
 
+import lesson1.task1.sqr
 import kotlin.math.sqrt
 
 /**
@@ -75,7 +76,17 @@ fun digitNumber(n: Int): Int = TODO()
  * Найти число Фибоначчи из ряда 1, 1, 2, 3, 5, 8, 13, 21, ... с номером n.
  * Ряд Фибоначчи определён следующим образом: fib(1) = 1, fib(2) = 1, fib(n+2) = fib(n) + fib(n+1)
  */
-fun fib(n: Int): Int = TODO()
+fun fib(n: Int): Int {
+    var a = 0
+    var b = 1
+    var c = n
+    while (c != 0) {
+        a = a + b
+        b = a - b
+        c--
+    }
+    return a
+}
 
 /**
  * Простая
@@ -191,12 +202,39 @@ fun hasDifferentDigits(n: Int): Boolean = TODO()
  * Сложная
  *
  * Найти n-ю цифру последовательности из квадратов целых чисел:
- * 149162536496481100121144...
+ * 149162536496481100121144169196225...
  * Например, 2-я цифра равна 4, 7-я 5, 12-я 6.
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun squareSequenceDigit(n: Int): Int = TODO()
+fun squareSequenceDigit(n: Int): Int {
+    var o = 0
+    var a = 1
+    var t = 0
+    var i = 0;
+    var j = 0;
+    do {
+        j = j + 1
+        a = sqr(j)
+        t = a
+//        i ++
+        while (t > 0) {
+            t = t / 10
+            i++
+        }
+
+    } while (i < n)
+
+
+
+    t = a
+    while (i >= n) {
+        o = t % 10
+        t = t / 10
+        i--
+    }
+    return o
+}
 
 /**
  * Сложная
