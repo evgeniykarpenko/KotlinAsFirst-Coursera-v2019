@@ -175,7 +175,23 @@ fun cos(x: Double, eps: Double): Double = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun revert(n: Int): Int = TODO()
+fun revert(n: Int): Int {
+    var k = n
+    var s = 0
+    var j = 1
+    var result = 0
+    while (k>0) {
+        k = k /10
+        s++
+    }
+    for (i in s-1 downTo 0) {
+        val pow = Math.pow(10.0, i.toDouble()).toInt()
+        val i1 = n/(Math.pow(10.0, (j.toDouble()-1))).toInt() % 10
+        j++
+        result += i1 * pow
+    }
+    return result.toInt()
+}
 
 /**
  * Средняя
@@ -217,7 +233,6 @@ fun squareSequenceDigit(n: Int): Int {
         j = j + 1
         a = sqr(j)
         t = a
-//        i ++
         while (t > 0) {
             t = t / 10
             i++
